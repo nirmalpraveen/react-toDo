@@ -1,26 +1,27 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './style.css';
 
 export default function App() {
   const [isUpdate, setUpdate] = React.useState(false);
 
+  function ListElement() {
+    // let inputValue = document.querySelector('.input').value;
+    // console.log(inputValue);
+    return (
+      <React.Fragment>
+        <li>Praveen</li>
+        <button>Update</button>
+        <button>Delete</button>
+      </React.Fragment>
+    );
+  }
+
   const addItem = () => {
-    let inputElement = document.querySelector('.input');
-    let listElement = document.createElement('LI');
-    let text = document.createTextNode(inputElement.value);
-    console.log(inputElement.value);
-    listElement.appendChild(text);
-    let updateButton = document.createElement('BUTTON');
-    let updateText = document.createTextNode('Update');
-    updateButton.appendChild(updateText);
-    listElement.append(updateButton);
-    let deleteButton = document.createElement('BUTTON');
-    let deleteText = document.createTextNode('Delete');
-    deleteButton.appendChild(deleteText);
-    listElement.append(deleteButton);
-    let appendingArea = document.querySelector('.appendingArea');
-    appendingArea.append(listElement);
+    let appendArea = document.querySelector('.appendingArea');
+    appendArea.append(<li>Praveen</li>);
   };
+
   return (
     <div>
       <input type="text" class="input" />
@@ -28,6 +29,7 @@ export default function App() {
         {isUpdate ? 'Update' : 'Add'}
       </button>
       <div class="appendingArea" />
+      <ListElement />
     </div>
   );
 }
